@@ -5,12 +5,13 @@ from registrationValidation import*
 
 
 class User:
-    def __init__(self, name, surname, username, password, user_id):
+    def __init__(self, name, surname, username, password, user_id, authority):
         self.name = name
         self.surname = surname
         self.username = username
         self.password = password
         self.user_id = user_id
+        self.authority = authority
 
 
 def id_creator():
@@ -34,8 +35,9 @@ def registerUser():
     surname = surname_validation()
     username = username_validation()
     password = password_validation()
+    authority = "user"
 
-    user = User(name, surname, username, password, userId)
+    user = User(name, surname, username, password, userId, authority)
     print("\nRegistration process has successfully finished!")
     print("Redirecting to main menu...\n\n")
     time.sleep(3)

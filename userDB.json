@@ -1,11 +1,28 @@
 {
   "users": [
     {
-      "user_id": 7326,
+      "user_id": 7536,
       "name": "Vidadi",
       "surname": "Nasibov",
       "username": "admin",
-      "password": "adminadmin1"
+      "password": "adminadmin1",
+      "authority": "superAdmin"
+    },
+    {
+      "user_id": 7058,
+      "name": "Ilqar",
+      "surname": "Ilqarov",
+      "username": "iqo",
+      "password": "ilqar2020",
+      "authority": "user"
+    },
+    {
+      "user_id": 5752,
+      "name": "Hasan",
+      "surname": "Nasibov",
+      "username": "hnasibov",
+      "password": "nasibov1972",
+      "authority": "user"
     }
   ]
 }
