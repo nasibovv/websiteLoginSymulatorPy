@@ -28,19 +28,20 @@ def read_data_from_db(login_username, login_password):
     with open("userDB.json") as user_file:
         data = json.load(user_file)
 
-    for user_username in data["users"]:
-        if user_username["username"] == login_username:
+    if not flag:
+        for user_username in data["users"]:
+            if user_username["username"] == login_username:
+                flag = True
+                index = data["users"].index(user_username)
 
-            flag = True
-            index = data["users"].index(user_username)
-        else:
-            print("\nUsername or Password is not correct! Try again!\n")
-            return False
+    if not flag:
+        print("\nUsername or Password is not correct! Try again! \n")
+        return False
 
     if flag:
 
         if data["users"][index]["password"] == login_password:
-            authority_check()
+            authority_check(index)
         else:
             print("\nUsername or Password is not correct! Try again!\n")
             return False

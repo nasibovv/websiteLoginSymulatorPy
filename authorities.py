@@ -1,8 +1,68 @@
 import json
+import time
+
+def authorize_user():
+
+        au_user = input("Enter username of user you want to authorize:")
+        au_check = input("As 'editor' or 'admin': ")
+
+        with open("userDB.json") as user_file:
+            data = json.load(user_file)
+
+        for user_username in data["users"]:
+            if user_username["username"] == au_user:
+
+                if au_check == "editor":
+                    user_username["authority"] = au_check
+
+                    with open("userDB.json", "w") as user_file:
+                        json.dump(data, user_file)
+                    print("\nUser has successfully authorized\nRedirecting to Control Panel...")
+                    time.sleep(3)
+
+                elif au_check == "admin":
+                    user_username["authority"] = au_check
+
+                    with open("userDB.json", "w") as user_file:
+                        json.dump(data, user_file)
+                    print("\nUser has successfully authorized\nRedirecting to Control Panel...")
+                    time.sleep(3)
+
+                else:
+                    print("Invalid Input")
+
+
+def write_json_user_au(index, au_check):
+    def write_json(data, filename="userDB.json"):
+        with open(filename, "w") as f:
+            json.dump(data, f)
+
+    with open("userDB.json") as user_file:
+        data = json.load(user_file)
+        temp = data["users"][index]
+        print(au_check)
+        print(temp)
+        user = {"authority": au_check}
+        temp.dump(user)
+
+    write_json(data)
 
 
 def superAdmin():
-    pass
+    while True:
+        print("\n******* Super Admin Control page *******")
+        print("1. Authorize User")
+        print("2. Ban User")
+        print("3. Ban User")
+        print("4. Edit User Info")
+        print("5. Add User")
+        print("6. Reset")
+        print("7. Exit System")
+
+        choice = int(input("\nEnter Choice: "))
+
+        if choice == 1:
+            authorize_user()
 
 
 def admin():
@@ -13,16 +73,15 @@ def editor():
     pass
 
 
-def authority_check():
+def authority_check(index):
     with open("userDB.json") as user_file:
         data = json.load(user_file)
 
-    for user_authority in data["users"]:
-        if user_authority["authority"] == "superAdmin":
+        if data["users"][index]["authority"] == "superAdmin":
             superAdmin()
-        elif user_authority["authority"] == "admin":
+        elif data["users"][index]["authority"] == "admin":
             admin()
-        elif user_authority["authority"] == "editor":
+        elif data["users"][index]["authority"] == "editor":
             editor()
         else:
-            print("Welcome to user interface")
+            print("\n******* Welcome to user interface *******")
