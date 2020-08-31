@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-{"users": [{"user_id": 7536, "name": "Vidadi", "surname": "Nasibov", "username": "admin", "password": "adminadmin1", "authority": "superAdmin"}, {"user_id": 7058, "name": "Ilqar", "surname": "Ilqarov", "username": "iqo", "password": "ilqar2020", "authority": "editor"}, {"user_id": 5752, "name": "Hasan", "surname": "Nasibov", "username": "hnasibov", "password": "nasibov1972", "authority": "user"}, {"user_id": 1370, "name": "Samir", "surname": "Karimov", "username": "karimov20", "password": "karimov123", "authority": "editor"}]}
-=======
 {
   "users": [
     {
@@ -43,10 +40,9 @@
       "name": "Heci",
       "surname": "Heciyev",
       "username": "hhaciyev123",
-      "password": "wtfnigga23",
+      "password": "default12345",
       "authority": "user",
-      "status": "active"
+      "status": "banned"
     }
   ]
 }
->>>>>>> bcd75ca... Fourth commit, added new features
