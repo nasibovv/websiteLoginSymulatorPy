@@ -1,6 +1,6 @@
 import json
 import time
-
+import sqlite3
 from register import registerUser
 
 
@@ -161,15 +161,18 @@ def editor():
             break
 
 
-def authority_check(index):
-    with open("userDB.json") as user_file:
-        data = json.load(user_file)
+def authority_check(login_username):
 
-        if data["users"][index]["authority"] == "superAdmin":
-            superAdmin()
-        elif data["users"][index]["authority"] == "admin":
-            admin()
-        elif data["users"][index]["authority"] == "editor":
-            editor()
-        else:
-            print("\n******* Welcome to user interface *******\n")
+    con = sqlite3.connect("user.db")
+
+    cursor = con.cursor()
+    current = cursor.execute("SELECT Status FROM Users")
+        
+    if current == "superAdmin":
+        superAdmin()
+    elif current == "admin":
+        admin()
+    elif current == "editor":
+        editor()
+    else:
+        print("\n******* Welcome to user interface *******\n")

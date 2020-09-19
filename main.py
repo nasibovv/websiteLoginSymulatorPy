@@ -1,4 +1,4 @@
-from dbActions import write_json_from_main
+from database import add_db
 from login import login
 
 while True:
@@ -10,7 +10,7 @@ while True:
     choice = input("\nEnter your choice: ")
 
     if choice == "1":
-        write_json_from_main()
+        add_db()
     elif choice == "2":
         login()
     elif choice == "3":
